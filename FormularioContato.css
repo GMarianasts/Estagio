@@ -1,0 +1,54 @@
+body { /* Fundo(corpo) da Página */
+    margin: 0; /* retira a margem padrão da página */
+    padding: 0; 
+    font-family: Arial, Helvetica, sans-serif; /* Define a Fonte da escrita na página*/
+    height: 100vh; /* DEfine a altura da página para ocupar toda a altura da página */
+    background-color: #005D95; /* Defini a cor do corpo da página */
+    position: relative; /* Define o posicionamento do body como relativo para que os elementos dependentes dele possam ser posicionados nde forma correta em relação a ele */
+}
+
+.contato-container {
+    width: 450px; /* Largura do Formulário de contato*/
+    padding: 24px; /* Espaço interno entre as bordas do Formulário e o conteúdo */
+    background-color: #ffffff; /* Cor de fundo do Fromulário de contato = branco*/
+    border-radius: 12px; /* Acabamento da "caixa" do formulário com borda arredondada*/
+    position: absolute; /* Posiciona a caixa do formulário de forma absoluta, no caso, ajudando a centralizar ela*/
+    top: 50%; /* Posiciona a caixa no meio da tela(50% de distância do topo da página*/ 
+    left: 50%; /* Posiciona a caixa no meio da tela (50% de distância do lado esquerdo)*/
+    transform: translate(-50%, -50%); /* ajuda o position manter a caixa de formulário centralizada*/
+}
+
+.contato-container h1 {
+    text-align: center; /* Centraliza o texto dentro do título h1*/
+    margin-bottom: 36px; /* Adiciona um espaço abaixo do título h1 para afastar o texto abaixo*/
+}
+
+input[type="email"], input[type="text"], 
+.botaoenviar {
+    box-sizing: border-box; /* Ajusta o tamanho dos campos de entrada na caixa do formulário*/
+    width: 100%; /* Faz com que os campos de entrada ocupem 100% da linha disponível*/
+    padding: 15px; /* Aumenta o espaço dos campos de entrada e do botão*/
+    margin: 5px 0 30px 0; /* Adiciona espaço entre os campos de entrada */
+    border: 1px solid #ccc; /* Acabamento da borda do campo de entrar*/
+    border-radius: 25px; /* Deixa a borda dos campos de entrada arredondada, dando acabamento*/
+    font-size: inherit; /* Define a fonte da escrita de dentro dos campos de entrada e do botão*/
+}
+
+input[type="email"], input[type="text"] {
+    background: #f1f1f1; /* Adicionar a cor cinza como fundo do campo de entrada*/
+}
+
+.botaoenviar {
+    background-color: #00A7E0; /* Adiciona a cor azul como cor de fundo do botão*/
+    color: white; /* Deixa na cor branca a escrita dentro do botão*/
+    cursor: pointer; /* Transforma o cursor em um ponteiro ou mãozinha, indicando que o botão é clicável*/
+    border: 2px solid #ccc; /* Adiciona uma borda cinza envolta do botão, dando acabamento e deixando no mesmo padrão dos campos de entrada*/
+}
+
+.botaoenviar:hover {
+    background-color: #64D9F8; /* Muda a cor de fundo para um azul mais claro quando o botão é hover( quando passa o mouse sobre ele)*/
+}
+
+h1{
+    color: #00A7E0; /* DEfine a cor do texto no h1 com um azul específico*/
+}

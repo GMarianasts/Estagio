@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="FormularioContato.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="contato-container">
+        <h1>Formulário de Contato</h1>
+        <form method="POST" action="script.php" >
+            <label for="Nome"><b>Nome:</b></label> <!-- Exibe na tela pedindo que o usuário insira seu Nome-->
+            <input type="text" id="nome" name="nome"
+                placeholder="Digite aqui o seu nome" required>
+
+            <label for="Email"><b>Email:</b></label> <!-- Exibe na tela pedindo que o usuário insira seu E-mail-->
+            <input type="email" id="email" name="email"
+                placeholder="Digite aqui o seu email" required>
+
+            <label for="Mensagem"><b>Mensagem:</b></label> <!-- Exibe na tela pedindo que o usuário insira a mensagem que deseja-->
+            <input type="text" id="mensagem" name="mensagem"
+                placeholder="Digite aqui a sua mensagem" required>
+
+            <button type="submit" class="botaoenviar" onclick="ValidarFormulario(event)">Enviar</button> <!-- Botão de envio do formulário. Antes de enviar ele faz a validação dos dados inseridos-->
+        </form>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+    
+        function ValidarFormulario(event) { // Função para validar os dados inseridos
+            event.preventDefault();  // Evita o envio do formulário antes de fazer a validação.
+            let nome = document.getElementById("nome").value; // puxa o dado armazenado no id do campo nome
+            let email = document.getElementById("email").value; // puxa o dado armazenado no id do campo email
+            let mensagem = document.getElementById("mensagem").value; // puxa o dados armazenado no id do campo mensagem
+            let result = document.getElementById("result");
+
+            let isValid = true;
+
+            // Validação do campo nome
+            if (nome.length < 3) { // Se o campo nome tiver menos que 3 caracteres será informado ao usuário
+                result.innerHTML += " - O Nome deve ter pelo menos 3 caracteres.<br>";
+                isValid = false;
+            }
+            // Validação do campo email
+            if (!email) { // Se um email não for inserido será pedido ao usuário que insira um
+                result.innerHTML += " - Por favor, preencha o email.<br>";
+                isValid = false;
+            } else if (!validacaoEmail(email)) { // Se o email não atender a todas os critérios de validação será pedido que o usuário insira um email válido
+                result.innerHTML += " - Por favor, insira um email válido.<br>";
+                isValid = false;
+            }
+            if (mensagem.length < 10) { // Se o campo mensagem tiver menos que 10 caracteres será informado ao usuário
+                result.innerHTML += " - A mensagem deve ter pelo menos 10 caracteres.";
+                isValid = false;
+            }
+
+            if (isValid) { // Quando todos os campos forem preenchidos corretamente será exibido na tela um alerta mostrando os dados inseridos
+                console.log("Nome:", nome);
+                console.log("Email:", email);
+                console.log("Mensagem: ", mensagem);
+
+                alert("Nome: " + nome + "\nEmail: " + email + "\nMensagem: " + mensagem + "\n\nFormulario enviado com sucesso!"); // Junto do alerta com os dados é avisado que o formulário foi enviado com sucesso
+
+            }
+        }
+        function validacaoEmail(email) { // função para a validação do email
+            return email.includes('@') && email.includes('.'); //Verifica se o email é valido, ou seja, se ele possui o uso de '@' e de '.' 
+        }
+    </script>
+    
+
+</body>
+</html>
